@@ -25,3 +25,4 @@ Sense HAT is an add-on board specifically developed for Raspberry Pi and special
      
 It iss easily attached to the Raspberry Pi 3 via the GPIO ports, and secured with screws, as shown in the following pictures:
 
+https://github.com/rromanss23/Uploading-sensor-data-to-IOTA-tangle.wiki.git
