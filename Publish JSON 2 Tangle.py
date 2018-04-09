@@ -7,19 +7,18 @@ from datetime import datetime
 from iota import Address, ProposedTransaction, Tag, Transaction, Iota, TryteString
 
 
-SEED = 'TZ9FAELAEDZRIJBYXJBMNPSKOBUBONNOBF9WURC9AIT9M9DUECVHOWNNBARMXR9BNSESLLKWVRWBPMRSR'
+SEED = 'TRYSOMENICESEEDTHATFITSEIGHTYONECHARACTERSLOVEIOC9AIT9M9DUECVHOWNNBARMXR9BNSESLLKWVRWBPMRSR'
 ######DO NOT NEED TO BEE THE SEED OF THE "TO" ADDRESS ###########################
 
 #GENERATE AN ADDRESS FROM A SEED. SEED CAN BE DIFFERENT FROM ABOVE.THIS ADDRESS HAS TO BE ATTACHED TO THE TANGLE. 
 #THIS CAN BE DONE IN THE WALLET.
 #GENERATE ADDRESS WITH CHECKSUM
-ADDRESS = 'EABEHEOVIFMSKSZUWKZNWDHWSUDVAMGSFNEYFODWPIDHTXCGNHKAAWKUVIRANAHTQFCHQOUUX9NKVMLAXUFDQJSBCA' 
+ADDRESS = 'TYRYSOMENICEADDRESSTHATFITSLOVEGSFNEYFODWPIDHTXCGNHKAAWKUVIRANAHTQFCHQOUUX9NKVMLAXUFDQJSBCA' 
 tag = iota.Tag('MS') #Tag for in the message.
 data = [] #Empty container for pm 10, pm25 data to send to IOTA
 
 #Fill container with sensor data
 data.append({'name': 'RomansTest', 'datetime': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'Temp': 30,'Press': 920})
-#data.append({'name': 'RomansTest', 'datetime': datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'pm10': 14, 'pm25': 12})
 print("-"*35) 
 print ('String data:',json.dumps(data))
 trytes = TryteString.from_string(json.dumps(data))
