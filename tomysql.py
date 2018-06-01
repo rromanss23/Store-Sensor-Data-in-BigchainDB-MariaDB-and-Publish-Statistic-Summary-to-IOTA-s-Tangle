@@ -3,13 +3,13 @@ import MySQLdb as mdb
 
 ### MYSQL SETTINGS ###
 
-data_base_hostname = "localhost"     # MySQL host ip address or name
+data_base_hostname = ""      # MySQL host ip address or name
 
-data_base_database = ""               # MySQL database name
+data_base_database = ""      # MySQL database name
 
-data_base_username = ""           # MySQL database user name
+data_base_username = ""      # MySQL database user name
 
-data_base_password = ""         # MySQL database password
+data_base_password = ""      # MySQL database password
 
 ### MYSQL SETUP ###
 
