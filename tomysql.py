@@ -5,11 +5,11 @@ import MySQLdb as mdb
 
 data_base_hostname = "localhost"     # MySQL host ip address or name
 
-data_base_database = "iota"               # MySQL database name
+data_base_database = ""               # MySQL database name
 
-data_base_username = "iotauser"           # MySQL database user name
+data_base_username = ""           # MySQL database user name
 
-data_base_password = "Madrid2018"         # MySQL database password
+data_base_password = ""         # MySQL database password
 
 ### MYSQL SETUP ###
 
