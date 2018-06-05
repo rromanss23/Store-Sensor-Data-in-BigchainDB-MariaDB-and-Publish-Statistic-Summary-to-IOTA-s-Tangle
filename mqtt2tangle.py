@@ -18,8 +18,6 @@ It has been set up this way due to the message's content length limitation to 21
 
 
 from iota import Address, ProposedTransaction, Tag, Transaction, Iota, TryteString, json
-import paho.mqtt.client as mqtt
-import paho.mqtt.publish as publish
 from datetime import datetime
 import pandas as pd
 import json
@@ -48,24 +46,15 @@ DELAY = XXX                                                    # Time betwwen ea
 
 data_frame = pd.DataFrame()
 
-##### MQTT SUBSCRIPTION #####
-
-def on_connect(client, userdata, flags, rc):
-    global first_message
+first_message = True
     
-    print("Connected with result code "+str(rc))
-    print ("IOTA address used is " + str(Address(address[0],))) # Prints address generated
-    client.subscribe(sub_topic)
-    first_message = True
-    
-def on_message(client, userdata, msg):
+def send_to_tangle(message):
     global data_frame
     global first_message 
-    
-    data_decoded = json.loads(msg.payload)                             # Converts MQTT payload to string
-    df1 = pd.DataFrame([data_decoded], columns = data_decoded.keys())  # Insert payload into a Pandas data frame
+   
+    df1 = pd.DataFrame([message], columns = message.keys())  # Insert payload into a Pandas data frame
     data_frame = pd.concat([data_frame, df1])                          
-    print(data_frame)
+    #print(data_frame)
     
     if first_message:
         thread.start()
@@ -82,7 +71,7 @@ def send_summary():
     
     ## IOTA'S IMPLEMENTATION
     data_summary = data_frame.describe([]).round(4)
-    print(data_summary)
+    #print(data_summary)
     
     dict_summary = data_summary.to_dict()
     
@@ -93,17 +82,17 @@ def send_summary():
     data_frame = pd.DataFrame()  
     
     json_summary = json.dumps(new_data)                # Converts summary to a json object
-    print(json_summary)
-    print(len(json_summary))
+    #print(json_summary)
+    #print(len(json_summary))
     
     trytes = TryteString.from_string(json_summary)     # Code Json data in trytes
     
-    print('Message sent to tangle:',trytes.decode())   # shows decoded msg sent to tangle 
+    #print('Message sent to tangle:',trytes.decode())   # shows decoded msg sent to tangle 
 
     print('sleep...')
     time.sleep(1)
     
-    print(api)
+    #print(api)
     
     t0 = time.time()
     
