@@ -21,12 +21,12 @@ It will collect sensor data from the Sense Hat and publish it via MQTT. You need
 There, you'll need to have in the same directory the rest of the programms: mqtt.py, toiota.py, tobdb.py and tomysql.py. Running mqtt.py will connect to the chosen topic in the 1º) for each message recieved, will simultaneously:
     - Store it in a mysqldb database (previously configured and with the appropiate credentials)
     - Store it in BigchainDB server (previously configured and with the apporpiae credentials)
-    - Compute and send a temporal statistics data summary to IOTA's tangle. The summary is an abreviate version of the following form: 
-          "Pressure":
-          "count": 5                 
-          "mean": 942.471                 
-          "std": 0.027
-          "min": 942.439
-          "50%": 942.475
-          "max": 942.51
+    - Compute and send a temporal statistics data summary to IOTA's tangle. The summary is an abreviated version from this format: 
+    
+    "Pressure":"count": 5, "mean": 942.471, "std": 0.027, "min": 942.439, "50%": 942.475, "max": 942.51
+    
+    To this format:
+    
+    "Pressure": [5, 942.5349, 0.0207, 942.5166, 942.5283, 942.5625]
+ 
      Note: It's abbreviated in this way due to the limitations in regards to the capacity of the length of the messages published to the tangle. It's 81 trytes length ~ 2140 carachters.
