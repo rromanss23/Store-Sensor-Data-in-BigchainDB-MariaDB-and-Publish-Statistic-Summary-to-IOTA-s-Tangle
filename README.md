@@ -23,10 +23,10 @@ There, you'll need to have in the same directory the rest of the programms: mqtt
     - Store it in BigchainDB server (previously configured and with the apporpiae credentials)
     - Compute and send a temporal statistics data summary to IOTA's tangle. The summary is an abreviate version of the following form: 
           "Pressure":
-          "count": 5                Note: It's abbreviated in this way due to the limitations in regards to the capacity of the length of 
-          "mean": 942.471                 the messages published to the tangle. It's 81 trytes length ~ 2140 carachters
+          "count": 5                 
+          "mean": 942.471                 
           "std": 0.027
           "min": 942.439
           "50%": 942.475
           "max": 942.51
-     
+     Note: It's abbreviated in this way due to the limitations in regards to the capacity of the length of the messages published to the tangle. It's 81 trytes length ~ 2140 carachters.
