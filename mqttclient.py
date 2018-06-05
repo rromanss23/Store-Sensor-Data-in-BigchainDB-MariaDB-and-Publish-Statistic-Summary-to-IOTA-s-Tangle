@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 from tobdb import send_to_bdb
 from tomysql import store_mysql
+from toiota import send_to_tangle
 import json
 
 ### MQTT SETTINGS ###
@@ -17,11 +18,9 @@ pub_topic = "test/instrutions"  # send messages to this topic
 ### WHEN CONNECTION IS DONE ###
 
 def on_connect(client, userdata, flags, rc):
-    global first_message
-
     print("Connected with result code " + str(rc))
     client.subscribe(sub_topic)
-    first_message = True
+    
 
 
 ### WHEN RECIEVING A MESSAGE ###
@@ -37,8 +36,10 @@ def on_message(client, userdata, msg):
 
 # Send data to MariaDB client
     store_mysql(sensor_data)
-
-
+    
+# Send data to IOTA's Tangle
+    send_to_tangle(sensor_data)
+    
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
