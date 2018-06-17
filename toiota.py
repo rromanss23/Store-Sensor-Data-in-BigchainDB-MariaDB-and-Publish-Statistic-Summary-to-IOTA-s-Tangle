@@ -24,9 +24,9 @@ import threading
 
 ##### IOTA SETTINGS #####
 
-SEED = 'TZ9FAELAEDZRIJBYXJBMNPSKOBUBONNOBF9WURC9AIT9M9DUECVHOWNNBARMXR9BNSESLLKWVRWBPMRSR'
+SEED = 'PUTYOURSEEDHERE99999999999999999999999999999999999999999999999999'
 api = Iota('http://173.212.218.8:14265/', SEED)                # POW node, SEED IS NEEDED TO DO THE SIGNING
-tag = iota.Tag('RBRRYPISNSRSMRYFRSTVSN')          # Tag for in the message.
+tag = iota.Tag('PUTYOURTAGHERE')          # Tag for in the message.
 address = api.get_new_addresses(0, 1)['addresses']             # Generates a list of 1 address
 
 ##### PANDAS DATA FRAME SET #####
