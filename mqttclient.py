@@ -26,7 +26,6 @@ def on_connect(client, userdata, flags, rc):
 ### WHEN RECIEVING A MESSAGE ###
 
 def on_message(client, userdata, msg):
-    global first_message
     print(msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
 
     sensor_data = json.loads(msg.payload)
